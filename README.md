@@ -30,3 +30,14 @@ Set up an Amazon EKS Cluster:
 10. Once the cluster is created, you can click on "View cluster" to access the cluster details.
 
 
+Step --2 Connect to the Kubernetes Cluster
+
+1. Install the `kubectl` command-line tool by following the instructions in the Kubernetes documentation: https://kubernetes.io/docs/tasks/tools/
+
+2. Configure `kubectl` to connect to your EKS cluster by running the following command: `aws eks update-kubeconfig --name <your-cluster-name>`
+   
+3. Verify Cluster Connectivity: Run the following command to verify that `kubectl` is properly configured and can connect to your EKS cluster:
+  `kubectl get nodes`
+
+
+
