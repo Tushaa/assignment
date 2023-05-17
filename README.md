@@ -2,7 +2,6 @@
 Run a Production grade Wordpress app on Kubernetes using Aws cloud 
 
 step1 
-
 Set up an Amazon EKS Cluster:
 . Log in to the AWS Management Console: https://console.aws.amazon.com/
 . Navigate to the Amazon EKS service by searching for "EKS" in the search bar and selecting "Amazon Elastic Kubernetes Service (EKS)".
