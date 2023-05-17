@@ -63,11 +63,8 @@ To request storage resources for your WordPress application, you can create Pers
 3. Replace <your-storage-class> with the name of the storage class you want to use. You can find the available storage classes in your cluster by running the command: kubectl get storageclasses,Save the pvc.yaml file.
    
 4. Apply the PVC configuration by running the following command: `kubectl apply -f pvc.yaml`
-   
-   
-## Creating PersistentVolumes (PVs)
 
-To provide persistent storage for your applications in Kubernetes, you can create PersistentVolumes (PVs) by following these steps:
+   ## Creating PersistentVolumes (PVs)
 
 To provide persistent storage for your applications in Kubernetes, you can create PersistentVolumes (PVs) by following these steps:
 
@@ -75,17 +72,27 @@ To provide persistent storage for your applications in Kubernetes, you can creat
 
 2. Copy and paste the following YAML configuration into the `pv.yaml` file:
 
-```yaml
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: my-pv
-spec:
-  capacity:
-    storage: 10Gi
-  accessModes:
-    - ReadWriteOnce
-  persistentVolumeReclaimPolicy: Retain
-  storageClassName: <your-storage-class>
+3. Replace <your-storage-class> with the same storage class used in the PVC you created earlier.Adjust the storage value as per your storage requirements.
+Save the pv.yaml file.
    
-  
+4. Open a terminal or command prompt and navigate to the directory where the pv.yaml file is saved.
+Apply the PV configuration by running the following command:`kubectl apply -f pv.yaml`
+   
+   
+   ## Docker file
+
+
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
