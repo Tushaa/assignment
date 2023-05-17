@@ -1,7 +1,7 @@
 # assignment
 Run a Production grade Wordpress app on Kubernetes using Aws cloud 
 
-step1 --
+## step1 --
 Set up an Amazon EKS Cluster:
 1. Log in to the AWS Management Console: https://console.aws.amazon.com/
 
@@ -30,7 +30,7 @@ Set up an Amazon EKS Cluster:
 10. Once the cluster is created, you can click on "View cluster" to access the cluster details.
 
 
-Step --2 Connect to the Kubernetes Cluster
+## Step --2 Connect to the Kubernetes Cluster
 
 1. Install the `kubectl` command-line tool by following the instructions in the Kubernetes documentation: https://kubernetes.io/docs/tasks/tools/
 
@@ -39,5 +39,52 @@ Step --2 Connect to the Kubernetes Cluster
 3. Verify Cluster Connectivity: Run the following command to verify that `kubectl` is properly configured and can connect to your EKS cluster:
   `kubectl get nodes`
 
+## Step3 --Create PersistentVolumeClaims and PersistentVolumes
 
+## Create PersistentVolumeClaims
+To request storage resources for your WordPress application, you can create PersistentVolumeClaims (PVCs) in your Kubernetes cluster. PVCs define the storage requirements, such as storage class, access mode, and size.
+
+1. Create a new file named `pvc.yaml` in a text editor.
+
+2. Copy and paste the following YAML configuration into the `pvc.yaml` file:
+
+   ```yaml
+   apiVersion: v1
+   kind: PersistentVolumeClaim
+   metadata:
+     name: wordpress-pvc
+   spec:
+     accessModes:
+       - ReadWriteOnce
+     resources:
+       requests:
+         storage: 5Gi
+     storageClassName: <your-storage-class>
+
+3. Replace <your-storage-class> with the name of the storage class you want to use. You can find the available storage classes in your cluster by running the command: kubectl get storageclasses,Save the pvc.yaml file.
+   
+4. Apply the PVC configuration by running the following command: `kubectl apply -f pvc.yaml`
+   
+   
+## Creating PersistentVolumes (PVs)
+
+To provide persistent storage for your applications in Kubernetes, you can create PersistentVolumes (PVs) by following these steps:
+
+1. Create a new file named `pv.yaml` in a text editor.
+
+2. Copy and paste the following YAML configuration into the `pv.yaml` file:
+
+```yaml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: my-pv
+spec:
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: <your-storage-class>
+   
 
