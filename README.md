@@ -79,17 +79,28 @@ Save the pv.yaml file.
 Apply the PV configuration by running the following command:`kubectl apply -f pv.yaml`
    
    
-   ## Docker file
-
-1. Create a new directory for your project and navigate to it. `mkdir my-project`
+## Docker file 
+1: Create a new directory for your project and navigate to it. `mkdir my-project`
    `cd my-project`
    
-2. Step 2: Create a file named Dockerfile in the project directory and open it in a text editor.`touch Dockerfile`
+2: Step 2: Create a file named Dockerfile in the project directory and open it in a text editor.`touch Dockerfile`
    
-3. Copy and paste the following code into the Dockerfile. Code in **Docker data file**
+3: Copy and paste the code into the Dockerfile. Code is in **Docker data file**
  
 
+4: Create an Nginx configuration file named nginx.conf in the project directory and open it in a text editor.
+`touch nginx.conf`
    
+5: Copy and paste your desired Nginx configuration into the nginx.conf file. This should include the necessary proxying directives for passing requests to WordPress.
+Add your Nginx configuration here **Copy the configuration from configuration file on github** Save the Dockerfile and nginx.conf files.
+
+6: Build the Docker image using the following command:
+`docker build -t my-wordpress` .
+Replace my-wordpress with the desired name for your Docker image.
+
+7: Run the Docker container based on the image you built:
+`docker run -p 80:80 my-wordpress`
+This will map port 80 of the container to port 80 of the host machine, allowing you to access your WordPress site.
 
 
 
