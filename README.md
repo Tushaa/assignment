@@ -103,7 +103,34 @@ Replace my-wordpress with the desired name for your Docker image.
 This will map port 80 of the container to port 80 of the host machine, allowing you to access your WordPress site.
 
 
+## Deploying WordPress using Helm
 
+To deploy WordPress using Helm, follow these steps:
+
+1. Install Helm on your local machine by following the official Helm documentation. Helm is a package manager for Kubernetes that simplifies the deployment of applications.
+
+2. Add the WordPress Helm repository. Replace `<repository-url>` with the actual URL of the repository. You can use the official WordPress Helm repository or any other trusted repository.
+
+   ```shell
+   helm repo add my-repo <repository-url>
+   
+3. Deploy WordPress using the Helm chart. Replace <my-release> with the desired name for your release.
+   
+   ```shell
+   helm install <my-release> my-repo/wordpress -f values.yaml
+   
+4. Wait for the deployment to complete. You can check the status using the following command:
+   
+   ```shell
+   helm status <my-release>
+   
+5. To clean up the deployment, delete the Helm release
+   ```shell
+   helm delete my-release
+ Wait for the release to be deleted.
+   
+
+   
 
    
    
