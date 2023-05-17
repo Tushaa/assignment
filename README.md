@@ -1,8 +1,7 @@
 # assignment
 Run a Production grade Wordpress app on Kubernetes using Aws cloud 
 
-## step1 --
-Set up an Amazon EKS Cluster:
+## step1 --Set up an Amazon EKS Cluster:
 1. Log in to the AWS Management Console: https://console.aws.amazon.com/
 
 2. Navigate to the Amazon EKS service by searching for "EKS" in the search bar and selecting "Amazon Elastic Kubernetes Service (EKS)".
@@ -70,6 +69,8 @@ To request storage resources for your WordPress application, you can create Pers
 
 To provide persistent storage for your applications in Kubernetes, you can create PersistentVolumes (PVs) by following these steps:
 
+To provide persistent storage for your applications in Kubernetes, you can create PersistentVolumes (PVs) by following these steps:
+
 1. Create a new file named `pv.yaml` in a text editor.
 
 2. Copy and paste the following YAML configuration into the `pv.yaml` file:
@@ -87,4 +88,4 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   storageClassName: <your-storage-class>
    
-
+  
