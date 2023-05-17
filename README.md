@@ -81,6 +81,18 @@ Apply the PV configuration by running the following command:`kubectl apply -f pv
    
    ## Docker file
 
+1. Create a new directory for your project and navigate to it. `mkdir my-project`
+   `cd my-project`
+   
+2. Step 2: Create a file named Dockerfile in the project directory and open it in a text editor.`touch Dockerfile`
+   
+3. Copy and paste the following code into the Dockerfile. Code in **Docker data file**
+ 
+
+   
+
+
+
 
    
    
