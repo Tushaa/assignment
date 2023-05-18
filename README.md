@@ -129,20 +129,48 @@ To deploy WordPress using Helm, follow these steps:
    helm delete my-release
  Wait for the release to be deleted.
    
+# Setup monitoring and alerting for wordpress app
+   
+## Step 1: Deploy Prometheus and Grafana Stack
+   
+1. Install Helm on your local machine if not already installed.
+   Add the Prometheus Helm repository using helm repo add prometheus-community https://prometheus-community.github.io/helm-charts.
 
+    Deploy Prometheus using the Helm chart
+   `helm install prometheus prometheus-community/prometheus`
    
+2. Add the Grafana Helm repository using helm repo add grafana https://grafana.github.io/helm-charts.
+   Deploy Grafana using the Helm chart: `helm install grafana grafana/grafana`
+   
+## Step 2: Configure Monitoring for WordPress, Apache, and Nginx
 
+1. Access the Grafana dashboard using the command provided after deploying Grafana. Alternatively, you can port-forward the Grafana service to access it locally.
    
+2. Log in to the Grafana dashboard using the default credentials (username: admin, password: admin) or the credentials specified during deployment.
    
+3. Configure Prometheus as a data source in Grafana by providing the Prometheus server URL.
    
+4. Explore the available dashboards in Grafana and import the relevant dashboards for WordPress, Apache, and Nginx metrics.
    
+5. Customize the dashboards to visualize the desired metrics and configure alerts based on your requirements.
    
+## Step 3: Monitor Container Metrics for WordPress
+
+1. Use Grafana's Prometheus data source to create a dashboard for monitoring container metrics, including pod CPU utilization.
    
+2. Utilize Prometheus queries and Grafana panels to display CPU utilization for your WordPress pods.
    
+## Step 4: Monitor Nginx Metrics
+
+1. Utilize the Prometheus data source to create a dashboard for monitoring Nginx metrics.
    
+2. Configure Prometheus to scrape Nginx metrics by setting up appropriate Prometheus service discovery or by specifying the Nginx exporter endpoint.
    
+3. Define Prometheus queries in Grafana to retrieve total request count and total 5xx requests for Nginx.
    
+## Step 5: Document Required Metrics
+
+1. Create a document listing all the required metrics for WordPress, Apache, and Nginx monitoring and alerting.
    
-   
-   
-   
+2. Include details such as metric names, description, data sources, and relevant Grafana dashboards.
+
